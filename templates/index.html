@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <head>
-  <title>OpenAI Quickstart</title>
+  <title>OpenAI Ad Generator</title>
   <link
     rel="shortcut icon"
-    href="{{ url_for('static', filename='dog.png') }}"
   />
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my pet</h3>
+  <h3>Enter product description</h3>
   <form action="/" method="post">
     <input type="text" name="animal" placeholder="Enter a product description" required />
     <select name="personality" id="cars">
-      <option value="" disabled selected>Select personality type</option>
-      <option value="frugal">frugal</option>
-      <option value="athlete">athlete</option>
-      <option value="fashion">fashionista</option>
+      <option value="" disabled selected>Select person's wants</option>
+      <option value="be happy">be happy</option>
+      <option value="be admired">be admired</option>
+      <option value="be succesful">be succesful</option>
     </select>
-    <input type="submit" value="Generate names" />
+    <input type="submit" value="Generate product description" />
   </form>
   {% if result %}
-  <div>personality {{personality}} </div>
-  <div>product_description {{product_description}} </div>
   <div class="result">{{ result }}</div>
   {% endif %}
 </body>

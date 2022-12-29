@@ -15,7 +15,7 @@ def index():
         response = openai.Completion.create(
             model="text-davinci-002",
             prompt=generate_prompt(product_description, personality),
-            temperature=0.6,
+            temperature=0.3,
         )
         return redirect(url_for("index", result=response.choices[0].text))
 
@@ -24,9 +24,11 @@ def index():
 
 
 def generate_prompt(product_description, personality):
-    print(personality, product_description)
-    return """Write a persuasive four sentence product description aimed at someone who is {} based on the following product description:
+    print('Personality >>>', personality,
+          '\nProduct description >>>', product_description)
+    return """Write a persuasive product description targeting someone who wants to {} based on the following product description:
     product description: {} 
-    persuasive description: """.format(
+    persuasive description: 
+    """.format(
         personality, product_description
     )
